@@ -31,9 +31,9 @@ if errorlevel 1 (
     exit /b 1
 )
 
-cls
-
 cd app
+
+cls
 
 start /B python "chatbot.py"
 
