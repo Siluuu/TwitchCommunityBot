@@ -18,6 +18,7 @@ lurker_list = []
 
 @bot.event()
 async def event_ready():
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f'{bot.nick} is ready!')
 
     asyncio.create_task(loyalty.async_setup())
