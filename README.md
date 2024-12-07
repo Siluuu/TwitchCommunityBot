@@ -5,6 +5,9 @@ A Twitch bot programmed with the community
 ## Setup
 
 
+
+##
+
 ### Used python packages
 - **python-dotenv**: https://github.com/theskumar/python-dotenv.git
 - **twitchio**: https://github.com/PythonistaGuild/TwitchIO.git
