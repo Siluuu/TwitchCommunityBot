@@ -9,7 +9,7 @@ A Twitch bot programmed with the community live on Twitch.
 - Git must be installed for the installation steps below.
 
 ### Installation
-1.  Open a terminal, PowerShell, or Command Prompt (CMD).
+1.  Open Terminal, PowerShell, or Command Prompt (CMD).
   
 2.  Clone the repository:
    ```
