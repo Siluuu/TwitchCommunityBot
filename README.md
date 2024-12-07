@@ -13,7 +13,7 @@ A Twitch bot programmed with the community
 
 
 
-### Used python packages
+### Used packages via. pip
 - **python-dotenv**: https://github.com/theskumar/python-dotenv.git
 - **twitchio**: https://github.com/PythonistaGuild/TwitchIO.git
 - **requests**: https://github.com/psf/requests.git
