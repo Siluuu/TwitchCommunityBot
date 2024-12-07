@@ -11,10 +11,10 @@ A Twitch bot programmed together with the community live on Twitch.
 1. Open **Command Prompt (CMD)**, **PowerShell**, or your preferred terminal on Windows.
 
 2. Clone the repository:
-   - Copy the repository URL: `https://github.com/yourusername/TwitchCommunityBot.git`.
+   - Copy the repository URL: `https://github.com/siluuu/TwitchCommunityBot.git`.
    - Run the following command in your terminal to clone the repository:
      ```
-     git clone https://github.com/yourusername/TwitchCommunityBot.git
+     git clone https://github.com/siluuu/TwitchCommunityBot.git
      ```
 
 3. Navigate to the project directory:
