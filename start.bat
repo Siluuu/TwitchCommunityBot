@@ -59,7 +59,7 @@ cd /d "%SCRIPT_DIR%app"
 :: Clear screen and start bot
 cls
 echo Starting chatbot...
-start /B python "chatbot.py" > chatbot.log 2>&1
+start /B python "chatbot.py"
 
 :: Pause for user to review
 pause
