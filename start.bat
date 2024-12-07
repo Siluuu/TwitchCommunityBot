@@ -35,6 +35,6 @@ cd app
 
 cls
 
-start /B python "chatbot.py"
+start python "chatbot.py"
 
 pause
