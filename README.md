@@ -4,9 +4,14 @@ A Twitch bot programmed with the community
 
 ## Setup
 
-
+### First
+-
 
 ##
+
+
+
+
 
 ### Used python packages
 - **python-dotenv**: https://github.com/theskumar/python-dotenv.git
