@@ -1,6 +1,5 @@
 # TwitchCommunityBot
-A Twitch bot programmed with the community live on Twitch.
-
+A Twitch bot programmed together with the community live on Twitch.
 
 ## Setup
 
@@ -9,25 +8,36 @@ A Twitch bot programmed with the community live on Twitch.
 - Git must be installed for the installation steps below.
 
 ### Installation
-1.  Open Terminal, PowerShell, or Command Prompt (CMD).
-  
-2.  Clone the repository:
-   ```
-   git clone https://github.com/yourusername/TwitchCommunityBot.git
-   ```
+1. Open **Command Prompt (CMD)**, **PowerShell**, or your preferred terminal on Windows.
 
-3.  Open the `.env` file and replace the placeholder values with your own required credentials and settings.
+2. Clone the repository:
+   - Copy the repository URL: `https://github.com/yourusername/TwitchCommunityBot.git`.
+   - Run the following command in your terminal to clone the repository:
+     ```
+     git clone https://github.com/yourusername/TwitchCommunityBot.git
+     ```
 
-4.  Run the `start.bat` file. On the first run, it will automatically create a virtual environment (venv) and install the required packages listed below via pip. This ensures all dependencies are properly set up for the bot to function.
-   
+3. Navigate to the project directory:
+   - If you're using Command Prompt, enter:
+     ```
+     cd TwitchCommunityBot
+     ```
 
+4. Open the `.env` file in the project folder using any text editor (e.g., Notepad, Visual Studio Code) and replace the placeholder values with your Twitch credentials and any other required settings.
+
+5. Double-click the `start.bat` file to run it:
+   - On the first run, it will:
+     - Create a virtual environment (`venv`).
+     - Install the required Python packages listed in the `requirements.txt` file.
+
+   This setup ensures all dependencies are properly installed, and the bot is ready to function.
 
 ## Dependencies
 This project uses the following libraries:
 
-- **python-dotenv**: https://github.com/theskumar/python-dotenv
-- **twitchio**: https://github.com/PythonistaGuild/TwitchIO
-- **requests**: https://github.com/psf/requests
+- **[python-dotenv](https://github.com/theskumar/python-dotenv)** - Manages environment variables.
+- **[TwitchIO](https://github.com/PythonistaGuild/TwitchIO)** - Provides tools to interact with Twitch chat.
+- **[Requests](https://github.com/psf/requests)** - Simplifies HTTP requests.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
