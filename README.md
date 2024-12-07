@@ -1,5 +1,5 @@
 # TwitchCommunityBot
-A Twitch bot programmed with the community
+A Twitch bot programmed with the community live on Twitch.
 
 
 ## Setup
