@@ -1,5 +1,6 @@
 import os
 import asyncio
+import json
 from datetime import datetime
 from dotenv import load_dotenv; load_dotenv()
 from twitchio.ext import commands
@@ -21,7 +22,32 @@ async def event_ready():
     os.system('cls' if os.name == 'nt' else 'clear')
     print(f'\n{bot.nick} is ready!')
 
-    asyncio.create_task(loyalty.async_setup())
+    task1 = asyncio.create_task(loyalty.async_setup())
+    task2 = asyncio.create_task(init_env_commands())
+
+    await asyncio.gather(task1, task2)
+
+
+async def init_env_commands():
+    link_command_json = os.getenv("LINKS")
+    link_command_dict = json.loads(link_command_json)
+    
+    try:
+        for command_name, data in link_command_dict.items():
+            link = data['link']
+            aliases = data['aliases']
+            
+            async def command(ctx, command_name=command_name, link=link):
+                author = str(ctx.author.name).lower()
+                await ctx.send(f'@{author} hier gehts zu meinen {command_name}: {link}')
+
+            bot.add_command(commands.Command(name=command_name, func=command, aliases=aliases))
+
+        return
+
+    except Exception as err:
+        print(f'[Error] {err}')
+
 
 
 @bot.event()
@@ -42,15 +68,6 @@ async def event_message(message):
 async def ping(ctx):
     await ctx.send('pong')
 
-
-@bot.command(name='github', aliases=['git'])
-async def github(ctx):
-    github_link = os.getenv('GITHUB_LINK')
-    author = str(ctx.author.name).lower()
-
-    answer = f'@{author} hier gehts zu meinen github: {github_link}'
-
-    await ctx.send(answer)
 
 
 @commands.cooldown(rate=1, per=30, bucket=commands.Bucket.channel)
@@ -224,13 +241,38 @@ async def change_game(ctx):
     await ctx.send(answer)
 
 
+@bot.command(name='addcommand')
+async def add_command(ctx):
+    author = str(ctx.author.name).lower()
 
+    message = str(ctx.message.content).lower()
+
+    if TTV_requests().is_moderator(author):
+        try:
+            _, command_name, content = message.split(' ', 2)
+
+            async def command(ctx, content=content):
+                await ctx.send(f'{content}')
+            
+            bot.add_command(commands.Command(name=command_name, func=command))
+
+            answer = f'Der Befehl !{command_name} wurde hinzugefügt.'
+
+
+        except Exception as err:
+            print(f'[Error] {err}')
+            answer = f'@{author} der Command geht wie folgt: !addcommand [command name] [content]'
+    
+    else:
+        answer = f'@{author} du hast nicht die benötigten Rechte dafür.'
+
+    await ctx.send(answer)
 
 
 # Help commands
 @bot.command(name='help', aliases=['commandlist', 'commands', 'command', 'info', 'h', 'i', 'c'])
 async def help(ctx):
-    author = ctx.author.name
+    author = str(ctx.author.name).lower()
     
     command_list = [command.name for command in bot.commands.values()]
     
